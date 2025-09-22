@@ -7,10 +7,6 @@ import java.util.Scanner;
 
 public class Main {
 
-    // The Random object is created once and can be used by all methods.
-    public static Random rand = new Random();
-
-
     public static int roll4d6() {
         int[] diceRolls = new int[4];
         Random random = new Random();
@@ -38,7 +34,10 @@ public class Main {
         int INT = roll4d6();
         int WIS = roll4d6();
         int CHA = roll4d6();
-                System.out.println(STR);
+
+        System.out.printf("Character: %s%n",charName);
+        System.out.printf("STR: %d | DEX: %d | CON: %d%n",STR,DEX,CON);
+        System.out.printf("INT: %d | WIS: %d | CHA: %d%n",INT,WIS,CHA);
     }
 }
 
