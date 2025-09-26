@@ -1,3 +1,5 @@
+//Engelmann 9/26
+
 import java.util.*;
 import java.util.Random;
 import java.util.Arrays;
@@ -7,6 +9,7 @@ import java.util.Scanner;
 
 public class Main {
 
+    //rolls 4 numbers 1-6, adds them to an array, sorts the array and then adds and outputs the 3 largest #
     public static int roll4d6() {
         int[] diceRolls = new int[4];
         Random random = new Random();
@@ -24,11 +27,12 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //array holding the names of the classes, used for prints and asigning extra stats
         String[] classes = {
                 "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk",
                 "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"
         };
-
+        //scanner for user input and gets char name
         Scanner input = new Scanner(System.in);
         System.out.println("Enter Char Name:");
 
@@ -36,6 +40,7 @@ public class Main {
         //(Current Ability score - 10) / 2 (*rounded down*)
         System.out.println(charName);
 
+        //calls roll4d6, sets stats and calcs the mod for each stat
         int STR = roll4d6();
             int STRMod = ((STR-10)/2);
         int DEX = roll4d6();
@@ -49,6 +54,7 @@ public class Main {
         int CHA = roll4d6();
             int CHAMod = ((CHA-10)/2);
 
+        //prints table
         System.out.printf("Character: %s%n",charName);
         System.out.printf("STR: %d (%d) | DEX: %d (%d) | CON: %d (%d)%n",STR,STRMod,DEX,DEXMod,CON,CONMod);
         System.out.printf("INT: %d (%d) | WIS: %d (%d) | CHA: %d (%d)%n",INT,INTMod,WIS,WISMod,CHA,CHAMod);
@@ -69,12 +75,14 @@ public class Main {
         System.out.printf("%-10s | %-16s | %-40s%n", "12. Wizard", "+2 INT, +1 CON", "Arcane Recovery, Spell Mastery");
         System.out.println("-------------------------------------------------------------------------");
 
+        //calls user for a number and then pulls the element from the array and then prints it
         System.out.print("Please enter the # of the class you choose: ");
         int choice = input.nextInt();
         String chosenClass = classes[choice - 1];
 
         System.out.println("You have chosen: " + chosenClass);
 
+        //swich statement to asign new stats based on class
         switch (chosenClass) {
             case "Barbarian":
                 STR += 2; CON += 1;
@@ -114,6 +122,7 @@ public class Main {
                 break;
         }
 
+        //re calcs the mods from the state changes based on class
         STRMod = (STR - 10) / 2;
         DEXMod = (DEX - 10) / 2;
         CONMod = (CON - 10) / 2;
@@ -121,6 +130,7 @@ public class Main {
         WISMod = (WIS - 10) / 2;
         CHAMod = (CHA - 10) / 2;
 
+        //prints out all the info through printf for formating
         System.out.printf("\n%s's stats have been updated to reflect the %s class.%n", charName, chosenClass);
         System.out.printf("Character: %s, [%s]%n",charName,chosenClass);
         System.out.printf("STR: %d (%d) | DEX: %d (%d) | CON: %d (%d)%n",STR,STRMod,DEX,DEXMod,CON,CONMod);
