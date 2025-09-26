@@ -2,7 +2,7 @@ import java.util.*;
 import java.util.Random;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.InputMismatchException;
+
 
 
 public class Main {
@@ -29,7 +29,7 @@ public class Main {
                 "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"
         };
 
-        Scanner input = new Scanner(System.in);  // Create a Scanner object
+        Scanner input = new Scanner(System.in);
         System.out.println("Enter Char Name:");
 
         String charName = input.nextLine();
@@ -114,7 +114,6 @@ public class Main {
                 break;
         }
 
-        // Recalculate modifiers based on the updated stats
         STRMod = (STR - 10) / 2;
         DEXMod = (DEX - 10) / 2;
         CONMod = (CON - 10) / 2;
